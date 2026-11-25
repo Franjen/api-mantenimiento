@@ -1,0 +1,47 @@
+meta {
+  name: CategoriasController_findOne
+  type: http
+  seq: 3
+  tags: [
+    Categorias
+  ]
+}
+
+get {
+  url: {{baseUrl}}/categorias/1
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+  forwardAuthorizationHeader: false
+}
+
+example {
+  name: 200 Response
+  
+  request: {
+    url: {{baseUrl}}/categorias/:id
+    method: GET
+    mode: none
+    params:path: {
+      id: 
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

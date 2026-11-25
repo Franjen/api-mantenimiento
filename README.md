@@ -87,8 +87,8 @@ npm run test:e2e
 Resultados verificados:
 
 - Compilación sin errores.
-- 3 pruebas unitarias aprobadas.
-- 2 pruebas E2E aprobadas.
+- 16 pruebas unitarias aprobadas.
+- 11 pruebas E2E aprobadas.
 
 ## Colección Bruno
 
@@ -108,7 +108,7 @@ Validaciones:
 
 - [x] Clase 01: Proyecto base y endpoint Health.
 - [x] Clase 02: Prisma y conexión con Supabase.
-- [ ] Clase 03: CRUD de categorías.
+- [x] Clase 03: CRUD de categorías.
 - [ ] Integración con Flutter.
 - [ ] Despliegue en Render.
 
@@ -120,3 +120,87 @@ Francisco Ismael Zamora Toaza
 Carrera: Desarrollo de Software
 
 Institución: AITEC
+
+
+## Clase 03 - CRUD de categorias
+
+Implementacion del CRUD de categorias mediante NestJS,
+Prisma ORM 7 y PostgreSQL en Supabase.
+
+### Endpoints disponibles
+
+| Metodo | Endpoint | Descripcion |
+|--------|----------|-------------|
+| GET | /health | Estado de la API y base de datos |
+| POST | /categorias | Crear una categoria |
+| GET | /categorias | Listar todas las categorias |
+| GET | /categorias/:id | Consultar una categoria |
+| PATCH | /categorias/:id | Actualizar una categoria |
+| DELETE | /categorias/:id | Eliminar una categoria |
+
+### Documentacion Swagger
+
+- Interfaz: http://localhost:3000/docs
+- OpenAPI JSON: http://localhost:3000/docs-json
+
+### Validaciones
+
+- Nombre obligatorio, maximo 80 caracteres.
+- Descripcion opcional, maximo 255 caracteres.
+- Validacion global mediante ValidationPipe.
+- Rechazo de propiedades no permitidas.
+- Validacion de identificadores mediante ParseIntPipe.
+- Error 400 para solicitudes invalidas.
+- Error 404 para categorias inexistentes.
+
+### Ejemplo de creacion
+
+```json
+{
+  "nombre": "Equipos informaticos",
+  "descripcion": "Computadoras y laptops"
+}
+```
+
+### Integracion con Bruno
+
+La coleccion api-mantenimiento esta conectada
+directamente con la especificacion OpenAPI de Swagger.
+
+URL: http://localhost:3000/docs-json
+
+Entorno: local
+
+Variable baseUrl: http://localhost:3000
+
+Para incorporar nuevos endpoints, utilizar la opcion
+Check for updates y sincronizar la coleccion.
+
+### Pruebas automatizadas
+
+| Archivo | Pruebas aprobadas |
+|---------|-------------------|
+| HealthController | 3 |
+| CategoriasService | 7 |
+| CategoriasController | 6 |
+| Health E2E | 2 |
+| Categorias E2E | 9 |
+| Total | 27 |
+
+Comandos de verificacion:
+
+```bash
+npm run build
+npm test
+npm run test:e2e
+```
+
+### Estado de la Clase 03
+
+- [x] Configuracion de Swagger.
+- [x] DTOs y validaciones.
+- [x] CRUD de categorias.
+- [x] Integracion con Prisma y Supabase.
+- [x] Sincronizacion de Bruno con OpenAPI.
+- [x] Pruebas manuales del CRUD.
+- [x] Pruebas unitarias y E2E.

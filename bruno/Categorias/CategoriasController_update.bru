@@ -1,0 +1,58 @@
+meta {
+  name: CategoriasController_update
+  type: http
+  seq: 4
+  tags: [
+    Categorias
+  ]
+}
+
+patch {
+  url: {{baseUrl}}/categorias/1
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nombre": "Equipos tecnológicos",
+    "descripcion": "Computadoras, laptops, impresoras y servidores"
+  }
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+  forwardAuthorizationHeader: false
+}
+
+example {
+  name: 200 Response
+  
+  request: {
+    url: {{baseUrl}}/categorias/:id
+    method: PATCH
+    mode: json
+    params:path: {
+      id: 
+    }
+  
+    body:json: {
+      {}
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
