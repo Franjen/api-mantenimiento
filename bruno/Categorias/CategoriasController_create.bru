@@ -1,0 +1,54 @@
+meta {
+  name: CategoriasController_create
+  type: http
+  seq: 1
+  tags: [
+    Categorias
+  ]
+}
+
+post {
+  url: {{baseUrl}}/categorias
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nombre": "Equipos informáticos",
+    "descripcion": "Computadoras, laptops e impresoras"
+  }
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+  forwardAuthorizationHeader: false
+}
+
+example {
+  name: 201 Response
+  
+  request: {
+    url: {{baseUrl}}/categorias
+    method: POST
+    mode: json
+    body:json: {
+      {}
+    }
+  }
+  
+  response: {
+    status: {
+      code: 201
+      text: Created
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

@@ -5,5 +5,15 @@
   "ignore": [
     "node_modules",
     ".git"
+  ],
+  "openapi": [
+    {
+      "sourceUrl": "http://localhost:3000/docs-json",
+      "groupBy": "tags",
+      "autoCheck": true,
+      "autoCheckInterval": 5,
+      "lastSyncDate": "2026-11-25T04:19:20.898Z",
+      "specHash": "a68adc86057c2de8b85b1a97556d6b43"
+    }
   ]
 }

@@ -1,0 +1,42 @@
+meta {
+  name: CategoriasController_findAll
+  type: http
+  seq: 2
+  tags: [
+    Categorias
+  ]
+}
+
+get {
+  url: {{baseUrl}}/categorias
+  body: none
+  auth: inherit
+}
+
+settings {
+  forwardAuthorizationHeader: false
+}
+
+example {
+  name: 200 Response
+  
+  request: {
+    url: {{baseUrl}}/categorias
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}
